@@ -17,7 +17,7 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
     def on_selection_modified(self, view):
         self.pending = self.pending + 1
         # Ask for handleTimeout to be called in 1000ms
-        settings = view.settings()
+        settings = sublime.load_settings("CopyOnSelect.sublime-settings")
         timeout = settings.get("copy_on_select_timeout", 1000)
         sublime.set_timeout_async(functools.partial(self.handleTimeout, view), timeout)
 
