@@ -1,0 +1,39 @@
+[
+    {
+        "id": "preferences",
+        "caption": "Preferences",
+        "children":
+        [
+            {
+                // Include this information in case it is the only package using that menu
+                "id": "package-settings",
+                "caption": "Package Settings",
+                "children":
+                [
+                    {
+                        "caption": "Copy On Select",
+                        "children":
+                        [
+                            // Settings - Default
+                            {
+                                "caption": "Settings – Default",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/CopyOnSelect/CopyOnSelect.sublime-settings"
+                                }
+                            },
+                            // Settings - User
+                            {
+                                "caption": "Settings – User",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/CopyOnSelect.sublime-settings"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
