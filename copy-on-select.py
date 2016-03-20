@@ -5,8 +5,7 @@ import functools
 
 class CopyOnSelectCommand(sublime_plugin.EventListener):
 
-    DELAY = sublime.load_settings("CopyOnSelect.sublime-settings") \
-            .get("delay", 1000)
+    DELAY = sublime.load_settings("CopyOnSelect.sublime-settings").get("delay", 1000)
 
     # number of pending calls to handle_timeout
     pending = 0
