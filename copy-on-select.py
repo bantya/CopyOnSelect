@@ -22,6 +22,7 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
         self.pending = self.pending + 1
         # Ask for handle_timeout to be called in DELAY ms
         sublime.set_timeout(functools.partial(self.handle_timeout, view), self.DELAY)
+        print(view.active_panel())
 
     def on_idle(self, view):
         string = ""
