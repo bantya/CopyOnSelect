@@ -18,10 +18,10 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
             # been 1000ms since the last modification
             self.on_idle(view)
 
-    def on_selection_modified_async(self, view):
+    def on_selection_modified(self, view):
         self.pending = self.pending + 1
         # Ask for handle_timeout to be called in DELAY ms
-        sublime.set_timeout_async(functools.partial(self.handle_timeout, view), self.DELAY)
+        sublime.set_timeout(functools.partial(self.handle_timeout, view), self.DELAY)
 
     def on_idle(self, view):
         string = ""
