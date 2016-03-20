@@ -5,23 +5,25 @@ import functools
 
 class CopyOnSelectCommand(sublime_plugin.EventListener):
 
+    DELAY = sublime.load_settings("CopyOnSelect.sublime-settings") \
+            .get("delay", 1000)
+
+    # number of pending calls to handle_timeout
     pending = 0
 
-    def handleTimeout(self, view):
+    def handle_timeout(self, view):
         self.pending = self.pending - 1
         if self.pending == 0:
-            # There are no more queued up calls to handleTimeout, so it must have
+            # There are no more queued up calls to handle_timeout, so it must have
             # been 1000ms since the last modification
-            self.onIdle(view)
+            self.on_idle(view)
 
-    def on_selection_modified(self, view):
+    def on_selection_modified_async(self, view):
         self.pending = self.pending + 1
-        # Ask for handleTimeout to be called in 1000ms
-        settings = sublime.load_settings("CopyOnSelect.sublime-settings")
-        timeout = settings.get("copy_on_select_timeout", 1000)
-        sublime.set_timeout_async(functools.partial(self.handleTimeout, view), timeout)
+        # Ask for handle_timeout to be called in DELAY ms
+        sublime.set_timeout_async(functools.partial(self.handle_timeout, view), self.DELAY)
 
-    def onIdle(self, view):
+    def on_idle(self, view):
         string = ""
         for region in view.sel():
             if not region.empty():

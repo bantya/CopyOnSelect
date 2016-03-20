@@ -1,3 +1,6 @@
 {
-    "copy_on_select_timeout": 1000
+    // Delay before selection is copied to clipboard, in ms
+    // If you're using a clipboard manager (highly recommended) you shouldn't
+    // set this too low, or you'll have lots of partial selections in your history
+    "delay": 1000
 }
