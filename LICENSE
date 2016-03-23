@@ -1,12 +1,3 @@
-# CopyOnSelect
-
-Copy on select plugin for [Sublime Text 3][].
-
-Install via [package control][] by going to `Command Palette → Package Control: Add Repository`, adding this repository, then installing as `CopyOnSelect`.
-
-Use of a clipboard manager is highly recommended — I use [Copied][] and love it.
-
-
 MIT License
 
 Copyright (c) 2016 Chris Panzier
@@ -28,8 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-[Copied]: http://copiedapp.com/
-[package control]: https://packagecontrol.io/
-[Sublime Text 3]: https://www.sublimetext.com/
