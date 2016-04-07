@@ -5,7 +5,7 @@ import functools
 
 class CopyOnSelectCommand(sublime_plugin.EventListener):
 
-    DELAY = sublime.load_settings("CopyOnSelect.sublime-settings").get("delay", 1000)
+    DELAY = int(sublime.load_settings("CopyOnSelect.sublime-settings").get("delay", 1000))
 
     # number of pending calls to handle_timeout
     pending = 0
@@ -20,7 +20,6 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
     def on_selection_modified(self, view):
         self.pending = self.pending + 1
         # Ask for handle_timeout to be called in DELAY ms
-        print(self.DELAY is int)
         sublime.set_timeout(functools.partial(self.handle_timeout, view), self.DELAY)
 
     def on_idle(self, view):
@@ -30,4 +29,3 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
                 string += view.substr(region)
         if string != "":
             sublime.set_clipboard(string)
-            # print(string)
