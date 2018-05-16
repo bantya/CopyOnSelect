@@ -2,34 +2,23 @@
 
 Copy on select plugin for [Sublime Text 3][].
 
-Install via [package control][] as `Copy on Select`.
+This plugin is actually built on top of Chris Panzier's awesome plugin [CopyOnSelect][]
 
-Use of a clipboard manager is highly recommended — I use [Copied][] and love it.
+I just added cherries on top of it.
 
+### Settings:
+- `delay (ms)`: Delay before selection is copied to clipboard.
+- `to_enable (boolean)`: To control whether to activate the plugin or not.
 
-MIT License
+### Commands:
+- `Toggle Copy On Select`: To toggle the activation of the plugin. Useful in case where you no longer want the code to be selected on copy.
 
-Copyright (c) 2016 Chris Panzier
+### Thanks:
+Many thanks and credit to [Chris Panzier][] for the plugin.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### License:
+MIT.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-[Copied]: http://copiedapp.com/
-[package control]: https://packagecontrol.io/
 [Sublime Text 3]: https://www.sublimetext.com/
+[CopyOnSelect]: https://github.com/chrifpa/CopyOnSelect
+[Chris Panzier]: https://github.com/chrifpa

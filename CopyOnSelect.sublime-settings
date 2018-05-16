@@ -2,5 +2,10 @@
     // Delay before selection is copied to clipboard, in ms
     // If you're using a clipboard manager (highly recommended) you shouldn't
     // set this too low, or you'll have lots of partial selections in your history
-    "delay": 1000
+    "delay": 1000,
+
+    // Setting to control the state of copy operation.
+    // If true, CopyOnSelect will take effect.
+    // If false, it will enable legacy mode where CopyOnSelect will not work.
+    "to_enable": false,
 }

@@ -1,15 +1,26 @@
+# This plugin is greatly inspired by https://github.com/chrifpa/CopyOnSelect
 import sublime
 import sublime_plugin
 import functools
 
+def load_settings():
+    return sublime.load_settings('CopyOnSelect.sublime-settings')
+
+def get_setting(setting, default = ''):
+    return load_settings().get(setting, default)
+
+def save_settings(status):
+    load_settings().set('to_enable', status)
+    sublime.save_settings('CopyOnSelect.sublime-settings')
+    sublime.status_message('CopyOnSelect: Toggled plugin status successfully!')
+    print("\n[CopyOnSelect: Toggled plugin status successfully!]\n")
 
 class CopyOnSelectCommand(sublime_plugin.EventListener):
-
     @property
     def delay(self):
-        settings = sublime.load_settings("CopyOnSelect.sublime-settings")
-        if settings:
-            delay = settings.get("delay", 1000)
+        delay = get_setting("delay", 1000)
+
+        if delay:
             try:
                 return int(delay)
             except:
@@ -27,6 +38,9 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
             self.on_idle(view)
 
     def on_selection_modified(self, view):
+        if get_setting('to_enable', True) == False:
+            return
+
         self.pending = self.pending + 1
         # Ask for handle_timeout to be called in DELAY ms
         sublime.set_timeout(functools.partial(self.handle_timeout, view), self.delay)
@@ -38,3 +52,10 @@ class CopyOnSelectCommand(sublime_plugin.EventListener):
                 string += view.substr(region)
         if string != "":
             sublime.set_clipboard(string)
+
+class ToggleCopyOnSelectCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        if get_setting('to_enable') == False:
+            save_settings(True)
+        elif get_setting('to_enable') == True:
+            save_settings(False)

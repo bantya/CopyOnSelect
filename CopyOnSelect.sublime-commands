@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "Toggle Copy On Select",
+        "command": "toggle_copy_on_select"
+    }
+]

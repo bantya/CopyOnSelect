@@ -14,22 +14,20 @@
                         "caption": "CopyOnSelect",
                         "children":
                         [
-                            // Settings - Default
                             {
-                                "caption": "Settings – Default",
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/SublimeCopyOnSelect/CopyOnSelect.sublime-settings"
-                                }
+                                "command": "open_file", "args":
+                                {
+                                    "file": "${packages}/CopyOnSelect/CopyOnSelect.sublime-settings"
+                                },
+                                "caption": "Settings – Default"
                             },
-                            // Settings - User
                             {
-                                "caption": "Settings – User",
-                                "command": "open_file",
-                                "args": {
+                                "command": "open_file", "args":
+                                {
                                     "file": "${packages}/User/CopyOnSelect.sublime-settings"
-                                }
-                            }
+                                },
+                                "caption": "Settings – User"
+                            },
                         ]
                     }
                 ]
